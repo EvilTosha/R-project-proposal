@@ -36,7 +36,7 @@ CheckConstraint <- function(weights, constraints) {
 }
 
 #' generate portfolio satisfying given constraints, if it's possibe
-#' additional property: if feasible portfolio exists, returned weight vector will have sum = min_sum
+#' additional property: if feasible portfolio exists, returned weight vector will have sum = max(min_sum, sum(min))
 #'
 #' @param constraints an object of type "constraints", specifying the constraints, see \code{\link{constraint}}
 #' @return named weighted vector, if feasible portfolio exists, NULL otherwise
