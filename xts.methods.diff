@@ -1,0 +1,20 @@
+76c76,82
+<       i <- which(i) #(1:NROW(x))[rep(i,length.out=NROW(x))]
+---
+>       if(length(i) < nr) {
+>         i <- which(rep(i, length.out=nr))
+>       }
+>       else if (length(i) > nr) {
+>         stop("(subscript) logical subscript is too long")
+>       }
+>       else i <- which(i) #(1:NROW(x))[rep(i,length.out=NROW(x))]
+157,158c163,164
+<       if(length(j) == 1) {
+<         j <- (1:nc)[rep(j, nc)]
+---
+>       if(length(j) < nc) {
+>         j <- which(rep(j, length.out=nc))
+162c168
+<       } else j <- (1:nc)[j]
+---
+>       } else j <- which(j)
